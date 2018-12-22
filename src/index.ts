@@ -1,13 +1,39 @@
 import { Application } from 'probot' // eslint-disable-line no-unused-vars
 
-export = (app: Application) => {
-  app.on('issues.opened', async (context) => {
-    const issueComment = context.issue({ body: 'Thanks for opening this issue!' })
-    await context.github.issues.createComment(issueComment)
-  })
-  // For more information on building apps:
-  // https://probot.github.io/docs/
+const defaultConfig = {
+    labels: ['rubber stamp', 'rubberstamp']
+};
 
-  // To get your app running against GitHub, see:
-  // https://probot.github.io/docs/development/
+export = (app: Application) => {
+    app.on('pull_request.labeled',async (context) => {
+        let labels = context.payload.pull_request.labels;
+        let config = await context.config('rubber-stamp.yml', defaultConfig);
+        if (!config) {
+            app.log.error('Config error!');
+            return;
+        }
+        let approveLabels = [];
+        for (let label of config.labels) {
+            approveLabels.push(label.toUpperCase());
+        }
+        app.log.debug(approveLabels);
+        for (let label of labels) {
+            app.log.debug('Process label: ' + label.name);
+            let checkLabel = label.name.toUpperCase();
+            if (approveLabels.includes(checkLabel)) {
+                let number = context.payload.pull_request.number;
+                app.log.debug('Approve ' + number);
+                let {owner, repo} = context.repo();
+                let result = await context.github.pullRequests.createReview({
+                    owner: owner,
+                    repo: repo,
+                    number: number,
+                    event: 'APPROVE',
+                    body: 'Approved by Rubber Stamp'
+                });
+                app.log.trace(result);
+                break;
+            }
+        }
+    });
 }

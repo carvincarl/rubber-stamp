@@ -1,12 +1,12 @@
 {
-  "name": "RubberStamp",
+  "name": "Rubber-Stamp",
   "version": "1.0.0",
   "description": "Approve pull requests",
   "author": "Carl Roth <carvincarl@gmail.com> (https://github.com/carvincarl)",
   "license": "ISC",
-  "repository": "https://github.com//rubberstamp.git",
-  "homepage": "https://github.com//rubberstamp",
-  "bugs": "https://github.com//rubberstamp/issues",
+  "repository": "https://github.com/carvincarl/rubber-stamp.git",
+  "homepage": "https://github.com/carvincarl/rubber-stamp",
+  "bugs": "https://github.com/carvincarl/rubber-stamp/issues",
   "keywords": [
     "probot",
     "github",
