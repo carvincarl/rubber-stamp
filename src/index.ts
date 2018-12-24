@@ -29,7 +29,7 @@ export = (app: Application) => {
                     repo: repo,
                     number: number,
                     event: 'APPROVE',
-                    body: 'Approved by Rubber Stamp'
+                    body: 'Approved by Rubber Stamp because the label "' + label.name + '" was added.'
                 });
                 app.log.trace(result);
                 break;
