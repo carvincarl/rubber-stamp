@@ -6,7 +6,7 @@ import nock from 'nock'
 import myProbotApp from '../src'
 import { Probot } from 'probot'
 // Requiring our fixtures
-// import payload from './fixtures/issues.opened.json'
+import payload from './fixtures/pull_request.labeled.json'
 
 nock.disableNetConnect()
 
@@ -23,7 +23,21 @@ describe('My Probot app', () => {
   })
 
   test('add label', async () => {
+    // Test that we correctly return a test token
+    nock('https://api.github.com')
+        .post('/app/installations/1/access_tokens')
+        .reply(200, { token: 'test' })
 
+    nock('https://api.github.com')
+        .get('/repos/testaccount/testrepo/contents/.github/rubber-stamp.yml')
+        .reply(404)
+
+    nock('https://api.github.com')
+        .post('/repos/testaccount/testrepo/pulls/88/reviews')
+        .reply(200, { })
+
+    // Receive a webhook event
+    await probot.receive({ name: 'pull_request', payload })
   })
 })
 
