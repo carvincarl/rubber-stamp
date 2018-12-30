@@ -11,7 +11,7 @@ Rubber Stamp can be used for the following use cases:
 Rubber Stamp requires a label to be added to the pull request. By default the label can be 'Rubber Stamp' or 'rubberstamp'.
 You can also configure your own labels for Rubber Stamp to watch. The labels are not case sensitive.
 
-![Screenshot](https://raw.githubusercontent.com/carvincarl/rubber-stamp/master/docs/screenshot.png)
+![](https://raw.githubusercontent.com/carvincarl/rubber-stamp/master/docs/screenshot.png "Screenshot")
 
 ## Installation
 
