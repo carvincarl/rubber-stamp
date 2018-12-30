@@ -11,6 +11,11 @@ Rubber Stamp can be used for the following use cases:
 Rubber Stamp requires a label to be added to the pull request. By default the label can be 'Rubber Stamp' or 'rubberstamp'.
 You can also configure your own labels for Rubber Stamp to watch. The labels are not case sensitive.
 
+## Installation
+
+Install the [Rubber Stamp](https://github.com/apps/rubber-stamp) app.
+The app works right out of the box. No need to add a configuration file.
+
 ## Configuration
 
 If you would like Rubber Stamp to watch a custom label, in your repository, add a `.github/rubber-stamp.yml` file.
