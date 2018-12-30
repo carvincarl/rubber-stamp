@@ -1,12 +1,8 @@
-// You can import your modules
-// import index from '../src/index'
-process.env.LOG_LEVEL = 'debug'
+// Copyright © 2018 Carl Roth <carvincarl@gmail.com>
 
 import nock from 'nock'
-// Requiring our app implementation
 import myProbotApp from '../src'
 import { Probot } from 'probot'
-// Requiring our fixtures
 import payload from './fixtures/pull_request.labeled.json'
 import payload_no_match from './fixtures/pull_request.labeled.no_match.json'
 const reviewBody = { body: 'Approved by Rubber Stamp because the label "rubber stamp" was added.' }
@@ -21,7 +17,7 @@ describe('Rubber Stamp app', () => {
     // Load our app into probot
     const app = probot.load(myProbotApp)
 
-    // just return a test token
+    // Return a test token
     app.app = () => 'test'
   })
 
@@ -82,7 +78,3 @@ describe('Rubber Stamp app', () => {
     await probot.receive({ name: 'pull_request', payload })
   })
 })
-
-// https://facebook.github.io/jest/
-// https://github.com/kulshekhar/ts-jest
-// https://github.com/nock/nock
