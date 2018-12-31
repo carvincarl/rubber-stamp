@@ -4,7 +4,7 @@ import nock from 'nock'
 import myProbotApp from '../src'
 import { Probot } from 'probot'
 import payload from './fixtures/pull_request.labeled.json'
-import payload_no_match from './fixtures/pull_request.labeled.no_match.json'
+import payloadNoMatch from './fixtures/pull_request.labeled.no_match.json'
 const reviewBody = { body: 'Approved by Rubber Stamp because the label "rubber stamp" was added.' }
 
 nock.disableNetConnect()
@@ -60,7 +60,7 @@ describe('Rubber Stamp app', () => {
         .reply(404)
 
     // Receive a webhook event
-    await probot.receive({ name: 'pull_request', payload: payload_no_match })
+    await probot.receive({ name: 'pull_request', payload: payloadNoMatch })
   })
 
   test('create review fails', async () => {
