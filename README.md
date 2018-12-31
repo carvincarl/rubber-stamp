@@ -4,19 +4,22 @@
 
 Rubber Stamp can be used for the following use cases:
 
-* If your pull requests require an approval, this app can automatically approve them.
+* If your pull request requires an approval before it can be merged, this app can automatically approve them.
 * If no other team members are available to approve your PR, Rubber Stamp can approve it so you can get your PR merged.
 * If you have an automated process to merge PRs, Rubber Stamp can automatically approve them.
 
-Rubber Stamp requires a label to be added to the pull request. By default the label can be 'Rubber Stamp' or 'rubberstamp'.
-You can also configure your own labels for Rubber Stamp to watch. The labels are not case sensitive.
+Rubber Stamp will approve a pull request when a specific label is added to the PR.
+By default the label can be 'Rubber Stamp' or 'rubberstamp'.
+You can also configure your own labels for Rubber Stamp to watch.
+The labels are not case sensitive.
 
 [![](https://raw.githubusercontent.com/carvincarl/rubber-stamp/master/docs/screenshot.png "Screenshot")](https://github.com/apps/rubber-stamp)
 
 ## Installation
 
 Install the [Rubber Stamp](https://github.com/apps/rubber-stamp) app.
-The app works right out of the box. No need to add a configuration file.
+The app works right out of the box.
+There is no need to add a configuration file.
 
 ## Configuration
 
